@@ -8,9 +8,11 @@ RUN apt-get update && apt-get install -y git unzip \
 COPY . /var/www/html/
 WORKDIR /var/www/html
 
-# Install Composer
+# Copy Composer binary
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN /usr/bin/composer install --no-interaction --prefer-dist
+
+# Install dependencies only jika composer.json ada
+RUN if [ -f composer.json ]; then /usr/bin/composer install --no-interaction --prefer-dist; fi
 
 # Enable rewrite
 RUN a2enmod rewrite
