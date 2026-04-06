@@ -1,0 +1,156 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff 0%, #f0f4ff 50%, #faf5ff 100%);
+}
+
+/* Dekorasi background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 40% at 20% 20%, rgba(79,110,247,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 80% 80%, rgba(124,58,237,.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.login-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Logo atas */
+.login-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-logo .logo-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 12px;
+    box-shadow: 0 8px 24px rgba(79,110,247,.3);
+}
+
+.login-logo h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.login-logo p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Tab switcher akun */
+.role-tabs {
+    display: flex;
+    background: var(--card2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 24px;
+}
+
+.role-tab {
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 9px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--muted);
+}
+
+.role-tab.active {
+    background: #fff;
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Card */
+.login-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    padding: 32px;
+    border: 1px solid var(--border);
+}
+
+.login-card h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.login-card .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+/* Tombol login */
+.btn-login {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(79,110,247,.3);
+    margin-top: 4px;
+}
+
+.btn-login:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,110,247,.4); }
+
+.login-alert {
+    background: rgba(239,68,68,.08);
+    color: #991b1b;
+    border: 1px solid rgba(239,68,68,.25);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    display: none;
+}
+
+.login-alert.show { display: block; }
+
+/* Tech decoration */
+.tech-dots {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.tech-dots::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(79,110,247,.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
