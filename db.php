@@ -1,4 +1,4 @@
-<?php
+<?php 
 $host = getenv('MYSQLHOST')     ?: 'mysql.railway.internal';
 $user = getenv('MYSQLUSER')     ?: 'root';
 $pass = getenv('MYSQLPASSWORD') ?: 'bivJpwmzTAkYQPEGotbjoPcVWXxrVXsf';
@@ -16,5 +16,4 @@ if ($conn->connect_error) {
 }
 
 $conn->set_charset('utf8mb4');
-
 ?>
