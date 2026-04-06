@@ -4,14 +4,14 @@ FROM php:8.2-apache
 RUN apt-get update && apt-get install -y git unzip \
     && docker-php-ext-install mysqli pdo pdo_mysql
 
-# Copy project ke Apache root
+# Copy source code ke Apache root
 COPY . /var/www/html/
 WORKDIR /var/www/html
 
 # Copy Composer binary
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install dependencies only jika composer.json ada
+# Install dependencies hanya jika composer.json ada
 RUN if [ -f composer.json ]; then /usr/bin/composer install --no-interaction --prefer-dist; fi
 
 # Enable rewrite
