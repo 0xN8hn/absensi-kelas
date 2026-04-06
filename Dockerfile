@@ -1,13 +1,19 @@
 FROM php:8.2-apache
 
-# Install extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN set -eux; \
 
-# Copy source code
-COPY . /var/www/html/
+apt-get update; \
 
-# Optional: enable rewrite
-RUN a2enmod rewrite
+apt-get install -y git unzip;
+
+COPY . /usr/src/myapp
+
+WORKDIR /usr/src/myapp
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN /usr/bin/composer require --no-interaction firebase/php-jwt
 
 EXPOSE 80
+
 CMD ["apache2-foreground"]
