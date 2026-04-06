@@ -1,10 +1,10 @@
 <?php
-$host = getenv('MYSQLHOST')     ?: 'localhost';
+$host = getenv('MYSQLHOST')     ?: 'mysql.railway.internal';
 $user = getenv('MYSQLUSER')     ?: 'root';
-$pass = getenv('MYSQLPASSWORD') ?: '';
-$name = getenv('MYSQLDATABASE') ?: 'absensi_kelas';
+$pass = getenv('MYSQLPASSWORD') ?: 'bivJpwmzTAkYQPEGotbjoPcVWXxrVXsf';
+$name = getenv('MYSQLDATABASE') ?: 'railway';
 $port = getenv('MYSQLPORT')     ?: 3306;
 
-$conn = new mysqli($host, $user, $pass, $name, $port);
+$conn = new mysqli($host, $user, $pass, $name, (int)$port);
 $conn->set_charset('utf8mb4');
 ?>
